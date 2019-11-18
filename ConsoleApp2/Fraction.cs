@@ -29,11 +29,11 @@ namespace ConsoleApp2
         
         public void Normalizer()
         {
-            int max = Math.Min(numerator, denominator);
+            int max = Math.Min(Math.Abs(numerator), Math.Abs(denominator));
 
             for (int i = max; i > 0; i--)
             {
-                if(numerator%i == 0 || denominator % i == 0 )
+                if(numerator%i == 0 & denominator % i == 0 )
                 {
                     numerator = numerator / i;
                     denominator = denominator / i;
@@ -58,6 +58,28 @@ namespace ConsoleApp2
                         return new Fraction(f1.numerator * (f2.denominator / f1.denominator) + f2.numerator, f2.denominator);
                     else
                         return new Fraction(f1.numerator * f2.denominator + f2.numerator * f1.denominator, f1.denominator * f2.denominator);
+        }
+
+        public static Fraction operator - (Fraction f1, Fraction f2)
+        {
+            if (f1.denominator == f2.denominator)
+                return new Fraction(f1.numerator - f2.numerator, f1.denominator);
+            else
+                if (f1.denominator > f2.denominator)
+                if (f1.denominator % f2.denominator == 0)
+                    return new Fraction(f1.numerator - f2.numerator * (f1.denominator / f2.denominator), f1.denominator);
+                else
+                    return new Fraction(f1.numerator * f2.denominator - f2.numerator * f1.denominator, f1.denominator * f2.denominator);
+            else
+                    if (f2.denominator % f1.denominator == 0)
+                return new Fraction(f1.numerator * (f2.denominator / f1.denominator) - f2.numerator, f2.denominator);
+            else
+                return new Fraction(f1.numerator * f2.denominator - f2.numerator * f1.denominator, f1.denominator * f2.denominator);
+        }
+
+        public static Fraction operator * (Fraction f1,Fraction f2)
+        {
+            return new Fraction(f1.numerator * f2.numerator, f1.denominator * f2.denominator);
         }
 
         public void Print()

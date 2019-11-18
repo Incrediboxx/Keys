@@ -47,6 +47,18 @@ namespace ConsoleApp2
         {
             if (f1.denominator == f2.denominator)
                 return new Fraction(f1.numerator + f2.numerator, f1.denominator);
+            else
+                if (f1.denominator > f2.denominator)
+                if (f1.denominator % f2.denominator == 0)
+                    return new Fraction(f1.numerator + f2.numerator * (f1.denominator / f2.denominator), f1.denominator);
+                else
+                    return new Fraction(f1.numerator * f2.denominator + f2.numerator * f1.denominator, f1.denominator * f2.denominator);
+            else
+                     if (f2.denominator % f1.denominator == 0)
+                return new Fraction(f1.numerator * f2.denominator + f2.numerator, f2.denominator);
+            else
+                return new Fraction(f1.numerator * f2.denominator + f2.numerator * f1.denominator, f1.denominator * f2.denominator);
+
         }
 
         public void Print()

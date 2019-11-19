@@ -15,16 +15,38 @@ namespace ConsoleApp2
         public Fraction(int a, int b)
         {
             this.numerator = a;
-            this.denominator = b;
+            if (b != 0)
+                this.denominator = b;
+            else
+            {
+                this.denominator = 1;
+                Console.WriteLine("В качестве знаменателя передан 0, автоматически заменено на 1");                
+                Console.WriteLine("Итог: " + numerator + "/" + denominator);
+            }
         }
 
         public Fraction(string a,string b)
         {
+            int aa;
+            if (!Int32.TryParse(b, out aa))
+                Console.WriteLine("Неверно передан параметр: знаменатель");
+            else 
+                if (aa != 0)
+                {                    
+                    denominator = aa;
+                }
+                else
+                {                    
+                    this.denominator = 1;
+                    Console.WriteLine("В качестве знаменателя передан 0, автоматически заменено на 1");
+                    Console.WriteLine("Итог: " + numerator + "/" + denominator);
+                }
+
             if (!Int32.TryParse(a, out numerator))
                 Console.WriteLine("Неверно передан параметр: числитель");
 
-            if (!Int32.TryParse(b, out denominator))
-                Console.WriteLine("Неверно передан параметр: знаменатель");
+           /* if (!Int32.TryParse(b, out denominator))
+                Console.WriteLine("Неверно передан параметр: знаменатель");*/
         }
         
         public void Normalizer()
@@ -84,8 +106,7 @@ namespace ConsoleApp2
 
         public void Print()
         {
-            Console.WriteLine(numerator + "/" + denominator);           
-
+            Console.WriteLine(numerator + "/" + denominator);
         }
     }
 }

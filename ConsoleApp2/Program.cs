@@ -10,8 +10,8 @@ namespace ConsoleApp2
     {
         static void Main(string[] args)
         {
-            Fraction f1 = new Fraction("30","16");
-            Fraction f2 = new Fraction("2", "1");
+            Fraction f1 = new Fraction("0","0");
+            Fraction f2 = new Fraction("18", "9");
             Fraction f3 = f1 - f2;
             f3.Print();
             f3.Normalizer();

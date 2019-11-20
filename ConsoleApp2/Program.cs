@@ -14,7 +14,7 @@ namespace ConsoleApp2
 
             //_________________ПЕРВОЕ ЗАДАНИЕ________________________________
             Fraction f1 = new Fraction("0","0");
-            Fraction f2 = new Fraction("18", "9");
+            Fraction f2 = new Fraction(18.0, 9.0);
             Fraction f3 = f1 - f2;
             f3.Print();
             f3.Normalizer();
@@ -31,18 +31,23 @@ namespace ConsoleApp2
             {
                 inputStr = sr.ReadLine();
             }
+
+            int n, m;
+                       
+            if(Int32.TryParse(inputStr.Split()[0], out n) & Int32.TryParse(inputStr.Split()[1], out m))
+            {
+                using (StreamWriter sr = new StreamWriter(writePath, false, System.Text.Encoding.Default))
+                {
+                    sr.WriteLine(binominal(m - 1, n - 1).ToString());
+                }
+            } else
+            {
+                Console.WriteLine("Неверно переданы парамерты");
+            }
+
             
 
-                       
-            int n = Int32.Parse(inputStr.Split()[0]);
-            int m = Int32.Parse(inputStr.Split()[1]);
-
-            //Console.WriteLine(binominal(m-1,n-1));
-
-            using (StreamWriter sr = new StreamWriter(writePath, false, System.Text.Encoding.Default))
-            {
-                sr.WriteLine(binominal(m-1,n-1).ToString());
-            }
+            
 
             Console.ReadKey();
         }

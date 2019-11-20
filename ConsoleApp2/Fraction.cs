@@ -8,8 +8,8 @@ namespace ConsoleApp2
 {
     class Fraction
     {
-        private int numerator; //числитель
-        private int denominator; //знаменатель
+        private long numerator; //числитель
+        private long denominator; //знаменатель
         
 
         public Fraction(int a, int b)
@@ -25,10 +25,36 @@ namespace ConsoleApp2
             }
         }
 
+        public Fraction(long a, long b)
+        {
+            this.numerator = a;
+            if (b != 0)
+                this.denominator = b;
+            else
+            {
+                this.denominator = 1;
+                Console.WriteLine("В качестве знаменателя передан 0, автоматически заменено на 1");
+                Console.WriteLine("Итог: " + numerator + "/" + denominator);
+            }
+        }
+
+        public Fraction(double a, double b)
+        {
+            this.numerator = Convert.ToInt64(a);
+            if (b != 0)
+                this.denominator = Convert.ToInt64(b);
+            else
+            {
+                this.denominator = 1;
+                Console.WriteLine("В качестве знаменателя передан 0, автоматически заменено на 1");
+                Console.WriteLine("Итог: " + numerator + "/" + denominator);
+            }
+        }
+
         public Fraction(string a,string b)
         {
-            int aa;
-            if (!Int32.TryParse(b, out aa))
+            long aa;
+            if (!Int64.TryParse(b, out aa))
                 Console.WriteLine("Неверно передан параметр: знаменатель");
             else 
                 if (aa != 0)
@@ -42,7 +68,7 @@ namespace ConsoleApp2
                     Console.WriteLine("Итог: " + numerator + "/" + denominator);
                 }
 
-            if (!Int32.TryParse(a, out numerator))
+            if (!Int64.TryParse(a, out numerator))
                 Console.WriteLine("Неверно передан параметр: числитель");
 
            /* if (!Int32.TryParse(b, out denominator))
@@ -51,9 +77,9 @@ namespace ConsoleApp2
         
         public void Normalizer()
         {
-            int max = Math.Min(Math.Abs(numerator), Math.Abs(denominator));
+            long max = Math.Min(Math.Abs(numerator), Math.Abs(denominator));
 
-            for (int i = max; i > 0; i--)
+            for (long i = max; i > 0; i--)
             {
                 if(numerator%i == 0 & denominator % i == 0 )
                 {

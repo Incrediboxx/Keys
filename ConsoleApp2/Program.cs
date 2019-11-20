@@ -13,7 +13,7 @@ namespace ConsoleApp2
         {
 
             //_________________ПЕРВОЕ ЗАДАНИЕ________________________________
-            Fraction f1 = new Fraction("0","0");
+            Fraction f1 = new Fraction("f","0");
             Fraction f2 = new Fraction(18.0, 9.0);
             Fraction f3 = f1 - f2;
             f3.Print();
@@ -38,7 +38,7 @@ namespace ConsoleApp2
             {
                 using (StreamWriter sr = new StreamWriter(writePath, false, System.Text.Encoding.Default))
                 {
-                    sr.WriteLine(binominal(m - 1, n - 1).ToString());
+                    sr.WriteLine(combination(m - 1, n - 1).ToString());
                 }
             } else
             {
@@ -63,7 +63,7 @@ namespace ConsoleApp2
             return fact;
         }
 
-        public static int binominal(int n,int m)
+        public static int combination(int n,int m)
         {
             return factorial(n) / factorial(m) / factorial(n - m);
         }

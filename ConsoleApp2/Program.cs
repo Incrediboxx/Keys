@@ -27,7 +27,7 @@ namespace ConsoleApp2
             ft2.Print();
             FractionTest<double> ft3 = new FractionTest<double>(18.5, 36.0);
             ft3.Print();
-            FractionTest<string> ft4 = new FractionTest<string>("18,0", "36,7");
+            FractionTest<string> ft4 = new FractionTest<string>("18,0", "36,9");
             ft4.Print();
             ft4.Normalizer();
             ft4.Print();    

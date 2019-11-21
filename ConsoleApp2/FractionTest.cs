@@ -17,7 +17,7 @@ namespace ConsoleApp2
             double dd;
                                              
             if (double.TryParse(a.ToString(), out dd))
-                numerator = (long)dd; // 
+                numerator = (long)dd; //Можно заменить на Convert но будет добавляться 1 если остаток больше 0.5
             else
             {
                 Console.WriteLine("Неверно передан параметр: числитель");
@@ -27,7 +27,7 @@ namespace ConsoleApp2
             if (double.TryParse(b.ToString(), out dd))
             {
                 aa = (long)dd;
-                if (aa != 0)
+                if (aa != 0) //Можно заменить на Convert но будет добавляться 1 если остаток больше 0.5
                     denominator = aa;
                 else
                 {

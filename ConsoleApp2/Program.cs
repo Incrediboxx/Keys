@@ -13,12 +13,26 @@ namespace ConsoleApp2
         {
 
             //_________________ПЕРВОЕ ЗАДАНИЕ________________________________
-            Fraction f1 = new Fraction("f","0");
+
+            /*Fraction f1 = new Fraction("f","0");
             Fraction f2 = new Fraction(18.0, 9.0);
             Fraction f3 = f1 - f2;
             f3.Print();
             f3.Normalizer();
-            f3.Print();
+            f3.Print();*/
+
+            FractionTest<int> ft1 = new FractionTest<int>(18, 36);
+            ft1.Print();
+            FractionTest<long> ft2 = new FractionTest<long>(18, 36);
+            ft2.Print();
+            FractionTest<double> ft3 = new FractionTest<double>(18.5, 36.0);
+            ft3.Print();
+            FractionTest<string> ft4 = new FractionTest<string>("18,0", "36,7");
+            ft4.Print();
+            ft4.Normalizer();
+            ft4.Print();    
+            
+            
             //_______________________________________________________________
 
 
@@ -43,11 +57,7 @@ namespace ConsoleApp2
             } else
             {
                 Console.WriteLine("Неверно переданы парамерты");
-            }
-
-            
-
-            
+            } 
 
             Console.ReadKey();
         }
